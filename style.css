@@ -1,0 +1,208 @@
+/* ======================================================== */
+/* CSS RESET */
+/* ======================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* ======================================================== */
+/* FIN CSS RESET */
+/* ======================================================== */
+
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+
+.encabezado {
+    background-color: rgb(130, 63, 9);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    color: aliceblue;
+}
+
+.seccion_principal {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    margin: 100px 20px;
+}
+
+.todos_libros {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+
+}
+
+.libro {
+    width: 350px;
+    height: 400px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.429);
+    border-radius: 15px;
+    justify-self: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 20px;
+}
+
+button {
+    font-weight: 800;
+    border-radius: 15px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.agregar {
+    font-size: 40px;
+    background-color: green;
+    width: 100%;
+}
+
+.centrarImagen {
+    justify-self: center;
+}
+
+.eliminar {
+    font-size: 25px;
+    height: 50px;
+    background-color: red;
+    width: 80%;
+    justify-self: center;
+}
+
+.grupo_boton {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.grupo_boton input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 10px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+}
+
+input[type="checkbox"]:focus {
+    outline: 2px solid #818cf8;
+    outline-offset: 2px;
+}
+
+dialog {
+    margin: auto;
+    width: 350px;
+    height: 400px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0ch 4px 6px rgba(0, 0, 0, 0.429);
+    padding: 20px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.651);
+}
+
+dialog button {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+}

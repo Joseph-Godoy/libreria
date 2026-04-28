@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="encabezado">
+        <h1 class="titulo_encabezado">LIBRERIA</h1>
+    </header>
+    <main class="seccion_principal">
+        <section class="todos_libros">
+            <article class="libro">
+                <img alt="harry potter" class="centrarImagen">
+                <h3>Harry Potter</h3>
+                <h4>J.K. Rolling</h4>
+                <p>234 paginas</p>
+                <div class="grupo_boton">
+                    <label>Leido</label>
+                    <input type="checkbox">
+                </div>
+                <button class="eliminar">Borrar</button>
+            </article>
+        </section>
+
+        <aside>
+            <dialog id="miDialog">
+                <form method="dialog" id="formulario-principal">
+                    <button value="cancelar" type="button" onclick="miDialog.close()">X</button>
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" />
+                    </div>
+                    <div>
+                        <label for="autor">Autor</label>
+                        <input type="text" name="autor" id="autor" />
+                    </div>
+                    <div>
+                        <label for="paginas">Paginas</label>
+                        <input type="text" name="paginas" id="paginas" />
+                    </div>
+
+                    <button value="guardar" form="formulario-principal" id="guardar" type="button">Guardar</button>
+                </form>
+            </dialog>
+            <button class="agregar" onclick="miDialog.showModal()">+</button>
+        </aside>
+
+    </main>
+</body>
+
+</html>
