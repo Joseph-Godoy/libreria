@@ -52,6 +52,7 @@ guardar.addEventListener('click', () => {
     const datos = new FormData(document.querySelector('#formulario-principal'));
 
     const objeto = new objetoLibros(datos.get('nombre'), datos.get('autor'), datos.get('paginas'))
+    alert(datos.get('leido'))
     libreria.push(objeto)
 
     render();
