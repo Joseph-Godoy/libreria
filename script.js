@@ -70,7 +70,8 @@ function objetoLibros(titulo, id, autor, leido, paginas) {
 guardar.addEventListener('click', () => {
     const datos = new FormData(document.querySelector('#formulario-principal'));
 
-    const objeto = new objetoLibros(datos.get('nombre'), crypto.randomUUID(), datos.get('autor'), datos.get('paginas'));
+    const objeto = new objetoLibros(datos.get('nombre'), crypto.randomUUID(), datos.get('autor'), datos.get('leido'),datos.get('paginas'));
+
     libreria.push(objeto);
 
     render();
@@ -85,8 +86,6 @@ function render() {
         crearLibro(libreria[i].titulo, libreria[i].id, libreria[i].autor, libreria[i].leido, libreria[i].paginas)
     }
 }
-
-
 
 
 
