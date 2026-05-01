@@ -78,114 +78,132 @@ button {
 /* ======================================================== */
 
 body {
-    background-color: rgb(238, 238, 238);
+    background-color: #0D0F14;
+    font-family: Urbanist;
 }
 
 
 .encabezado {
-    background-color: rgb(130, 63, 9);
-    height: 100px;
+    background-color: #0D0F14;
+    height: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 30px;
-    color: aliceblue;
+    font-size: 20px;
+    color: #E2E6F3;
+    border-bottom: 1px solid #1A1E2E;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .seccion_principal {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    margin: 100px 20px;
+    grid-template-columns: 1fr;
+    margin: 80px auto;
+    gap: 30px;
 }
 
 .todos_libros {
-    grid-column: 2 / 3;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 25px;
-
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 330px));
+    gap: 30px;
 }
 
 .libro {
-    width: 350px;
-    height: 400px;
-    background-color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.429);
-    border-radius: 15px;
+    width: 90%;
+    height: 240px;
+    background-color: #131620;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
     justify-self: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 4fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    padding: 20px;
+    grid-template-rows: 1fr 1fr 1fr 2fr 2fr;
+    padding: 15px;
+    transition: 0.1s;
+    border: 1px solid #1A1E2E;
+    color: #E2E6F3;
+}
+
+.libro:hover {
+    border: 1px solid #252A40;
+}
+
+h4 {
+    color: #5A6180;
+    font-weight: 500;
+}
+
+p {
+    color: #5a618082;
+    font-weight: 500;
 }
 
 button {
     font-weight: 800;
     border-radius: 15px;
     color: white;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    align-self: center;
 }
 
 .agregar {
-    font-size: 40px;
+    align-self: center;
+    font-size: 35px;
     background-color: green;
-    width: 100%;
-}
-
-.centrarImagen {
-    justify-self: center;
+    width: clamp(8vw, 20vw, 250px);
+    height: 50px;
+    text-align: center;
 }
 
 .eliminar {
     font-size: 25px;
     height: 50px;
-    background-color: red;
+    background-color: #131620;
     width: 80%;
+    justify-self: center;
+    font-size: 19px;
+    font-weight: 600;
+    border: 1px solid #b6c1fd45;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 90%;
+    height: 30px;
+    border: 2px solid #252A40;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    background-color: #1A1E2E;
+    align-self: center;
     justify-self: center;
 }
 
-.grupo_boton {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.grupo_boton input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    background-color: white;
+input[type="checkbox"]::after {
+    content: "Not Read";
+    position: absolute;
+    color: #5A6180;
+    font-weight: 600;
+    left: 12px;
+    top: 1px;
 }
 
 input[type="checkbox"]:checked {
-    background-color: #4f46e5;
-    border-color: #4f46e5;
+    
+    background-color: rgba(0, 66, 0, 0.867);
+    border: 2px solid rgba(0, 87, 0, 0.867);
 }
 
 input[type="checkbox"]:checked::after {
-    content: "";
+    content: "Read";
     position: absolute;
-    left: 4px;
+    color: #3DDC84;
+    left: 12px;
     top: 1px;
-    width: 6px;
-    height: 10px;
-    border: 2px solid white;
-    border-top: none;
-    border-left: none;
-    transform: rotate(45deg);
-}
-
-input[type="checkbox"]:focus {
-    outline: 2px solid #818cf8;
-    outline-offset: 2px;
 }
 
 dialog {

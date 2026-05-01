@@ -1,48 +1,37 @@
 let libreria = [];
 
 const miDialog = document.querySelector('#miDialog');
-const guardar = document.querySelector('#guardar');
+const guardar = document.querySelector('#formulario-principal');
 const lib = document.querySelector('.todos_libros');
 
 function crearLibro(tituloLibro, idLibro, autorLibro, leidoLibro, paginasLibro) {
     const seccion = document.querySelector('.todos_libros')
 
     const articulo = document.createElement('article');
-    const imagen = document.createElement('img')
     const titulo = document.createElement('h3')
     const id = document.createElement('p')
     const autor = document.createElement('h4')
     const paginas = document.createElement('p')
-    const contenedero = document.createElement('div')
-    const label = document.createElement('label')
     const checkbox = document.createElement('input')
     const boton = document.createElement('button')
 
     articulo.classList.add('libro');
-    imagen.setAttribute('alt', tituloLibro);
     titulo.textContent = tituloLibro;
     id.textContent = idLibro;
     autor.textContent = autorLibro;
     paginas.textContent = `${paginasLibro} paginas`;
-    label.textContent = 'Leido';
     checkbox.setAttribute('type', 'checkbox');
     checkbox.setAttribute('id', idLibro);
     checkbox.setAttribute('class', 'checkboxLibro');
     checkbox.checked = leidoLibro;
-    contenedero.classList.add('grupo_boton');
     boton.textContent = 'Borrar';
     boton.classList.add('eliminar');
     boton.classList.add(idLibro);
 
-    contenedero.appendChild(label)
-    contenedero.appendChild(checkbox)
-
-    articulo.appendChild(imagen)
     articulo.appendChild(titulo)
-    articulo.appendChild(id)
     articulo.appendChild(autor)
     articulo.appendChild(paginas)
-    articulo.appendChild(contenedero)
+    articulo.appendChild(checkbox)
     articulo.appendChild(boton)
 
     seccion.appendChild(articulo)
@@ -67,7 +56,8 @@ function objetoLibros(titulo, id, autor, leido, paginas) {
     this.leido = leido
 }
 
-guardar.addEventListener('click', () => {
+guardar.addEventListener('submit', (e) => {
+    e.preventDefault();
     const datos = new FormData(document.querySelector('#formulario-principal'));
 
     const objeto = new objetoLibros(datos.get('nombre'), crypto.randomUUID(), datos.get('autor'), datos.get('leido'),datos.get('paginas'));
@@ -89,9 +79,11 @@ function render() {
 
 
 
-const objeto1 = new objetoLibros('Harry Potter', crypto.randomUUID(), 'J.K Rolling', true, '456 paginas')
-const objeto2 = new objetoLibros('El Arte de la Guerra', crypto.randomUUID(), 'Tsun zu', true,'226 paginas')
+const objeto1 = new objetoLibros('Harry Potter', crypto.randomUUID(), 'J.K Rolling', true, '456')
+const objeto2 = new objetoLibros('El Arte de la Guerra', crypto.randomUUID(), 'Tsun zu', true,'226')
 
 libreria.push(objeto1)
 libreria.push(objeto2);
+
+
 render();
