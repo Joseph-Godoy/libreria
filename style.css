@@ -114,16 +114,16 @@ body {
 
 .libro {
     width: 90%;
-    height: 240px;
+    height: 260px;
     background-color: #131620;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.06);
     border-radius: 8px;
     justify-self: center;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 2fr 2fr;
+    grid-template-rows: 2fr 1fr 1fr 2fr 2fr;
     padding: 15px;
-    transition: 0.1s;
+    transition: border 0.1s;
     border: 1px solid #1A1E2E;
     color: #E2E6F3;
 }
@@ -147,6 +147,19 @@ button {
     border-radius: 15px;
     color: white;
     align-self: center;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #08439c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(16, 102, 230, 0.45);
+}
+
+button:active {
+    transform: scale(0.97);
+    background: #0a46a8;
+    box-shadow: 0 2px 12px rgba(16, 102, 230, 0.30);
 }
 
 .agregar {
@@ -158,6 +171,18 @@ button {
     text-align: center;
 }
 
+.agregar:hover {
+    background: #0fb809;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(11, 212, 48, 0.45);
+}
+
+.agregar:active {
+    transform: scale(0.97);
+    background: #099d11;
+    box-shadow: 0 2px 12px rgba(16, 230, 41, 0.3);
+}
+
 .eliminar {
     font-size: 25px;
     height: 50px;
@@ -167,6 +192,14 @@ button {
     font-size: 19px;
     font-weight: 600;
     border: 1px solid #b6c1fd45;
+}
+
+.textoVacio {
+    color: #e2e6f3ce;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 30px;
+    font-weight: 600;
 }
 
 input[type="checkbox"] {
@@ -181,6 +214,13 @@ input[type="checkbox"] {
     background-color: #1A1E2E;
     align-self: center;
     justify-self: center;
+    transition: 0.1s;
+}
+
+input[type="checkbox"]:active {
+    transform: scale(0.97);
+    box-shadow: 0 1px 8px #2a3252;
+    ;
 }
 
 input[type="checkbox"]::after {
@@ -193,7 +233,7 @@ input[type="checkbox"]::after {
 }
 
 input[type="checkbox"]:checked {
-    
+
     background-color: rgba(0, 66, 0, 0.867);
     border: 2px solid rgba(0, 87, 0, 0.867);
 }
@@ -208,19 +248,96 @@ input[type="checkbox"]:checked::after {
 
 dialog {
     margin: auto;
-    width: 350px;
-    height: 400px;
-    border-radius: 15px;
+    width: 400px;
     border: none;
-    box-shadow: 0ch 4px 6px rgba(0, 0, 0, 0.429);
-    padding: 20px;
+    height: 400px;
+    background-color: #131620;
+    border-radius: 8px;
+    position: relative;
+}
+
+form {
+    margin: 20px 0;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 2fr 2fr;
+    gap: 8px;
+    padding: 30px;
+    color: #E2E6F3;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.salir {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    background-color: rgba(255, 0, 0, 0);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.salir:hover {
+    background-color: #08439c00;
+    transform: none;
+    box-shadow: 0 0 0 rgba(16, 230, 41, 0);
 }
 
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.651);
 }
 
-dialog button {
-    background-color: #4f46e5;
-    border-color: #4f46e5;
+.btnGuardar {
+    font-size: 25px;
+    height: 50px;
+    background-color: #131620;
+    width: 80%;
+    font-size: 19px;
+    font-weight: 600;
+    border: 1px solid #b6c1fd45;
+    justify-self: center;
+}
+
+form input[type="text"],input[type="number"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 70%;
+    height: 30px;
+    border: 2px solid #252A40;
+    border-radius: 6px;
+    background-color: #1A1E2E;
+    color: #E2E6F3;
+    padding-left: 10px;
+}
+
+form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+form div label{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+form h4{
+    font-size: 28px;
+    font-weight: 800;
+    color: #e2e6f3dd;
+    text-align: center;
+    align-self: start;
+}
+
+
+@keyframes despedida {
+    0%   { opacity: 1; transform: scale(1) translateY(0); }
+    30%  { transform: scale(1.05) translateY(-6px); }
+    100% { opacity: 0; transform: scale(0.85) translateY(20px); }
+}
+
+.libro.eliminando {
+    animation: despedida 0.19s ease-in forwards;
+    pointer-events: none;
 }

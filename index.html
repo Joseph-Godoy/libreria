@@ -27,25 +27,24 @@
         <aside>
             <dialog id="miDialog">
                 <form id="formulario-principal">
-                    <button value="cancelar" type="button" onclick="miDialog.close()">X</button>
+                    <button value="cancelar" type="button" onclick="miDialog.close()" class="salir">X</button>
+                    <h4>Crea un Libro</h4>
                     <div>
-                        <label for="nombre">Nombre</label>
+                        <label for="nombre">Nombre:</label>
                         <input type="text" name="nombre" id="nombre" required />
                     </div>
                     <div>
-                        <label for="autor">Autor</label>
+                        <label for="autor">Autor:</label>
                         <input type="text" name="autor" id="autor" required />
                     </div>
                     <div>
-                        <label for="paginas">Paginas</label>
+                        <label for="paginas">Paginas:</label>
                         <input type="number" name="paginas" id="paginas" required />
                     </div>
+                    
+                    <input type="checkbox" name="leido" id="leido" class="leidoDialog">
 
-                    <div class="grupo_boton">
-                        <input type="checkbox" name="leido" id="leido">
-                    </div>
-
-                    <button value="guardar" form="formulario-principal" id="guardar" type="submit">Guardar</button>
+                    <button value="guardar" form="formulario-principal" id="guardar" type="submit" class="btnGuardar">Guardar</button>
                 </form>
             </dialog>
             

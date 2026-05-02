@@ -36,16 +36,19 @@ function crearLibro(tituloLibro, idLibro, autorLibro, leidoLibro, paginasLibro) 
 
     seccion.appendChild(articulo)
 
-    checkbox.addEventListener('change', () =>{
-    const libro = libreria.find(libro => libro.id === idLibro)
-    libro.leido = checkbox.checked
-});
+    checkbox.addEventListener('change', () => {
+        const libro = libreria.find(libro => libro.id === idLibro)
+        libro.leido = checkbox.checked
+    });
 
-boton.addEventListener('click', () =>{
-    const index = libreria.findIndex(index => index.id === idLibro)
-    libreria.splice(index, 1);
-    render();
-});
+    boton.addEventListener('click', () => {
+        articulo.classList.add('eliminando');
+        articulo.addEventListener('animationend', () => {
+            const index = libreria.findIndex(index => index.id === idLibro);
+            libreria.splice(index, 1);
+            render();
+        }, { once: true });
+    });
 }
 
 function objetoLibros(titulo, id, autor, leido, paginas) {
@@ -60,7 +63,7 @@ guardar.addEventListener('submit', (e) => {
     e.preventDefault();
     const datos = new FormData(document.querySelector('#formulario-principal'));
 
-    const objeto = new objetoLibros(datos.get('nombre'), crypto.randomUUID(), datos.get('autor'), datos.get('leido'),datos.get('paginas'));
+    const objeto = new objetoLibros(datos.get('nombre'), crypto.randomUUID(), datos.get('autor'), datos.get('leido'), datos.get('paginas'));
 
     libreria.push(objeto);
 
@@ -71,19 +74,37 @@ guardar.addEventListener('submit', (e) => {
 });
 
 function render() {
-    lib.innerHTML = ''
-    for (let i = 0; i < libreria.length; i++) {
-        crearLibro(libreria[i].titulo, libreria[i].id, libreria[i].autor, libreria[i].leido, libreria[i].paginas)
+    if (libreria.length === 0) {
+        lib.innerHTML = ''
+        const seccion = document.querySelector('.todos_libros')
+        const titulo = document.createElement('h3');
+        titulo.textContent = "No hay nada por aqui..."
+        titulo.classList.add("textoVacio")
+        seccion.appendChild(titulo)
+    } else {
+        lib.innerHTML = ''
+        for (let i = 0; i < libreria.length; i++) {
+            crearLibro(libreria[i].titulo, libreria[i].id, libreria[i].autor, libreria[i].leido, libreria[i].paginas)
+        }
     }
 }
 
 
 
-const objeto1 = new objetoLibros('Harry Potter', crypto.randomUUID(), 'J.K Rolling', true, '456')
-const objeto2 = new objetoLibros('El Arte de la Guerra', crypto.randomUUID(), 'Tsun zu', true,'226')
+const objeto1 = new objetoLibros('Harry Potter: Y la piedra filosofal', crypto.randomUUID(), 'J.K Rolling', true, '456')
+const objeto5 = new objetoLibros('Harry Potter: Y la camara de los secretos', crypto.randomUUID(), 'J.K Rolling', true, '456')
+const objeto6 = new objetoLibros('Harry Potter: Y el prisionero de azkaban', crypto.randomUUID(), 'J.K Rolling', true, '456')
+const objeto7 = new objetoLibros('Harry Potter: Y el caliz de fuego', crypto.randomUUID(), 'J.K Rolling', true, '456')
+const objeto8 = new objetoLibros('Harry Potter: Y la orden del fenix', crypto.randomUUID(), 'J.K Rolling', false, '426')
+const objeto3 = new objetoLibros('Habitos Atomicos', crypto.randomUUID(), 'James Clare', true, '456')
 
-libreria.push(objeto1)
-libreria.push(objeto2);
+
+libreria.push(objeto1);
+libreria.push(objeto3);
+libreria.push(objeto5);
+libreria.push(objeto6);
+libreria.push(objeto7);
+libreria.push(objeto8);
 
 
 render();
